@@ -4,3 +4,5 @@
 Retooling
 
 Devops/MlOps are tools for the future
+
+# Retooling and Upskilling
