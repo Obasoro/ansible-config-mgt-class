@@ -1,7 +1,7 @@
 
 ---
-- name: update web, nfs and db servers
-  hosts: webservers, nfs, db
+- name: update web, nfs servers
+  hosts: webservers, nfs
   remote_user: ec2-user
   become: yes
   become_user: root
@@ -11,8 +11,8 @@
       name: wireshark
       state: removed
 
-- name: update LB server
-  hosts: lb
+- name: update LB servers
+  hosts: lb, db
   remote_user: ubuntu
   become: yes
   become_user: root
