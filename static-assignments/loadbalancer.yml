@@ -1,6 +1,6 @@
 --- 
 - 
-  hosts: ~
+  hosts: all
   roles: 
     - 
       role: nginx
