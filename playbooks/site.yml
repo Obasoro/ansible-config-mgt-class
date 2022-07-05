@@ -14,11 +14,11 @@
 
 - hosts: db
 - name: database assignment
-  ansible.builtin.import_playbook: ../static-assignments/db.yml
+  import_playbook: ../static-assignments/db.yml
 
 - hosts: nginx
 - name: nginx assignment
-  ansible.builtin.import_playbook: ../static-assignments/nginx.yml
+  import_playbook: ../static-assignments/nginx.yml
 
 
 # - name: import database file
