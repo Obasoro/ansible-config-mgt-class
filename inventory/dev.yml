@@ -1,12 +1,9 @@
-[nfs]
-172.31.83.238 ansible_user='ec2-user'
+[nginx-server]
+172.31.93.81 ansible_user='ec2-user'
 
-[webservers]
-172.31.0.38 ansible_user='ec2-user'
-172.31.10.253 ansible_user='ec2-user'
 
 [db]
-172.31.86.142 ansible_user='ubuntu' 
+172.31.87.42 ansible_user='ubuntu' 
 
-[lb]
-172.31.95.176 ansible_user='ubuntu'
+
+

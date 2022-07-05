@@ -1,5 +1,6 @@
 ---
- - hosts: db
-   roles:
+- hosts: db
+  become: true
+  roles:
       - mysql
-   become: true
+   
