@@ -12,25 +12,25 @@
 #   tags:
 #     - always
 
-- hosts: db
-- name: database assignment file
-  import_playbook: ../static-assignments/db.yml
+# - hosts: db
+# - name: database assignment file
+#   import_playbook: ../static-assignments/db.yml
 
-- hosts: nginx
-- name: nginx assignment file
-  import_playbook: ../static-assignments/nginx.yml
+# - hosts: nginx
+# - name: nginx assignment file
+#   import_playbook: ../static-assignments/nginx.yml
 
 - hosts: artifactory
-- name: artifactory assignment
+- name: artifactory assignment file
   import_playbook: ../static-assignments/artifactory.yml
 
-- hosts: sonar
-- name: sonar assignment
-  import_playbook: ../static-assignments/sonar.yml
+# - hosts: sonar
+# - name: sonar assignment
+#   import_playbook: ../static-assignments/sonar.yml
 
-- hosts: todo
-- name: Deploy the todo application
-  import_playbook: ../static-assignments/deployment.yml
+# - hosts: todo
+# - name: Deploy the todo application
+#   import_playbook: ../static-assignments/deployment.yml
 
 
 # - name: import database file
