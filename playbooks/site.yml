@@ -13,12 +13,24 @@
 #     - always
 
 - hosts: db
-- name: database assignment
+- name: database assignment file
   import_playbook: ../static-assignments/db.yml
 
 - hosts: nginx
-- name: nginx assignment
+- name: nginx assignment file
   import_playbook: ../static-assignments/nginx.yml
+
+- hosts: artifactory
+- name: artifactory assignment
+  import_playbook: ../static-assignments/artifactory.yml
+
+- hosts: sonar
+- name: sonar assignment
+  import_playbook: ../static-assignments/sonar.yml
+
+- hosts: todo
+- name: Deploy the todo application
+  import_playbook: ../static-assignments/deployment.yml
 
 
 # - name: import database file
@@ -33,7 +45,8 @@
 
 # - name: import Loadbalancers assignment
 #   import_playbook: ../static-assignments/loadbalancer.yml
-#   when: load_balancer_is_required 
+#   when: load_balancer_is_required
+
 
 
 
