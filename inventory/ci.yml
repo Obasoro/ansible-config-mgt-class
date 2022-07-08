@@ -4,8 +4,8 @@
 [nginx]
 172.31.93.81 ansible_user='ec2-user'
 
-[sonarqube]
-<SonarQube-Private-IP-Address>
+# [sonarqube]
+# <SonarQube-Private-IP-Address>
 
 [artifactory]
 172.31.21.112 ansible_user='ec2-user'
