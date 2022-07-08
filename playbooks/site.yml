@@ -16,9 +16,9 @@
 # - name: database assignment file
 #   import_playbook: ../static-assignments/db.yml
 
-# - hosts: nginx
-# - name: nginx assignment file
-#   import_playbook: ../static-assignments/nginx.yml
+- hosts: nginx
+- name: nginx assignment file
+  import_playbook: ../static-assignments/nginx.yml
 
 - hosts: artifactory
 - name: artifactory assignment file
