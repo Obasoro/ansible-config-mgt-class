@@ -8,8 +8,8 @@
 # [tooling]
 # <Tooling-Web-Server-Private-IP-Address>
 
-# [todo]
-# <Todo-Web-Server-Private-IP-Address>
+[todo]
+172.31.80.122 ansible_user='ec2-user' 
 
 # [nginx]
 # <Nginx-Private-IP-Address>
