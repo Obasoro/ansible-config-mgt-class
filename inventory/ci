@@ -4,7 +4,7 @@
 # [nginx]
 # 172.31.93.81 ansible_user='ec2-user'
 
-[sonarqube]
+[sonar]
 172.31.95.207 ansible_user='ubuntu'
 
 # [artifactory]
