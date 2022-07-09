@@ -1,8 +1,8 @@
-[jenkins]
-172.31.85.76 ansible_user='ec2-user'
+# [jenkins]
+# 172.31.85.76 ansible_user='ec2-user'
 
-[nginx]
-172.31.93.81 ansible_user='ec2-user'
+# [nginx]
+# 172.31.93.81 ansible_user='ec2-user'
 
 # [sonarqube]
 # <SonarQube-Private-IP-Address>
