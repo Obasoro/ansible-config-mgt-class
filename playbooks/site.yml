@@ -1,41 +1,23 @@
 ---
-# - name: Include dynamic variables 
-- hosts: all
-
 # - hosts: db
-# - name: database assignment file
-#   import_playbook: ../static-assignments/db.yml
+# - name: database assignment
+#   ansible.builtin.import_playbook: ../static-assignments/database.yml
 
 # - hosts: nginx
-# - name: nginx assignment file
-#   import_playbook: ../static-assignments/nginx.yml
+# - name: nginx assignment
+#   ansible.builtin.import_playbook: ../static-assignments/nginx.yml
 
 # - hosts: artifactory
-# - name: artifactory assignment file
-#   import_playbook: ../static-assignments/artifactory.yml
+# - name: artifactory assignment
+#   ansible.builtin.import_playbook: ../static-assignments/artifactory.yml
 
 # - hosts: sonar
 # - name: sonar assignment
-#   import_playbook: ../static-assignments/sonar.yml
+#   ansible.builtin.import_playbook: ../static-assignments/sonar.yml
 
 - hosts: todo
 - name: Deploy the todo application
-  import_playbook: ../static-assignments/deployment.yml
-
-
-# - name: import database file
-#   import_playbook: ../static-assignments/db.yml
-
-# - name: import uat-webservers file
-#   import_playbook: ../static-assignments/uat-webservers.yml
-
-# - name: import Loadbalancers assignment
-#   import_playbook: ../static-assignments/loadbalancer.yml
-#   when: load_balancer_is_required 
-
-# - name: import Loadbalancers assignment
-#   import_playbook: ../static-assignments/loadbalancer.yml
-#   when: load_balancer_is_required
+  ansible.builtin.import_playbook: ../static-assignments/deployment.yml
 
 
 
