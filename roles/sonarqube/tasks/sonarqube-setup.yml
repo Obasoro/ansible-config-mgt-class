@@ -1,62 +1,61 @@
---- 
-- 
-  ansible.builtin.apt: 
-    name: 
+- name: install unzip and wget
+  ansible.builtin.apt:
+    name:
       - unzip
       - wget
-  name: "install unzip and wget"
-- 
-  ansible.builtin.get_url: 
+
+- name: download the zip file
+  ansible.builtin.get_url:
+    url: https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-7.9.3.zip
     dest: /opt/
-    mode: 493
-    url: "https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-7.9.3.zip"
-  name: "download the zip file"
-- 
-  ansible.builtin.file: 
-    mode: "0755"
+    mode: 0755
+
+- name: Create /opt/sonarqube/
+  ansible.builtin.file:
     path: /opt/sonarqube/
     state: directory
-  name: "Create /opt/sonarqube/"
-- 
-  ansible.builtin.unarchive: 
-    dest: /opt/
-    remote_src: true
+    mode: '0755'
+
+- name: Extract the zip file
+  ansible.builtin.unarchive:
     src: /opt/sonarqube-7.9.3.zip
-  name: "Extract the zip file"
-- 
-  ansible.builtin.copy: 
-    dest: /opt/sonarqube/
-    follow: true
-    remote_src: true
+    dest: /opt/
+    remote_src: yes
+
+- name: Copy /opt/sonarqube/
+  ansible.builtin.copy:
     src: /opt/sonarqube-7.9.3/
-  name: "Copy /opt/sonarqube/"
-- 
-  ansible.builtin.file: 
+    dest: /opt/sonarqube/
+    remote_src: yes
+    follow: yes
+
+- name: remove the zip file
+  ansible.builtin.file:
     path: /opt/sonarqube-7.9.3.zip
     state: absent
-  name: "remove the zip file"
-- 
-  ansible.builtin.shell: "useradd -c \"user to run SonarQube\" -d /opt/sonarqube -g sonar sonar"
-  name: "add user to run sonar"
-- 
-  ansible.builtin.shell: "chown sonar:sonar /opt/sonarqube -R"
-  name: "change ownership"
-- 
-  ansible.builtin.template: 
-    dest: /opt/sonarqube/conf/sonar.properties
-    force: true
+
+- name: add user to run sonar
+  ansible.builtin.shell: useradd -c "user to run SonarQube" -d /opt/sonarqube -g sonar sonar 
+
+- name: change ownership
+  ansible.builtin.shell: chown sonar:sonar /opt/sonarqube -R
+    
+- name: Configuring the SonarQube Server
+  ansible.builtin.template:
     src: templates/sonar.properties.j2
-  name: "Configuring the SonarQube Server"
-- 
-  ansible.builtin.lineinfile: 
-    line: RUN_AS_USER=sonar
+    dest: /opt/sonarqube/conf/sonar.properties
+    force: yes
+
+- name: Update user in sonar.sh filee
+  ansible.builtin.lineinfile:
     path: /opt/sonarqube/bin/linux-x86-64/sonar.sh
-    regexp: "^#RUN_AS_USER="
+    regexp: '^#RUN_AS_USER='
     state: present
-  name: "Update user in sonar.sh filee"
-- 
-  ansible.builtin.template: 
-    dest: /etc/systemd/system/sonar.service
-    force: true
+    line: RUN_AS_USER=sonar
+    
+
+- name: create a service file
+  ansible.builtin.template:
     src: templates/sonarqube.service.j2
-  name: "create a service file"
+    dest:  /etc/systemd/system/sonar.service
+    force: yes
